@@ -46,11 +46,13 @@ class Test(unittest.TestCase):
                             "questionNumber": 1,
                             "testNumber": testnumber,
                             "correct": correct,
-                            "speed": return_dict['diff'] * 1000000000
+                            "speed": return_dict['diff'] 
                         })
                 except Exception as e:
                     print(e)
             wrong = len([item for item in response if item['correct'] is False])
+            for item in response:
+                print(item)
             if wrong > 0:
                 raise AssertionError("You have failed %d cases" % wrong)
 
@@ -87,13 +89,15 @@ class Test(unittest.TestCase):
                             "questionNumber": 2,
                             "testNumber": testnumber,
                             "correct": correct,
-                            "speed": return_dict['diff'] * 1000000000
+                            "speed": return_dict['diff']
                         })
                 except Exception as e:
                     print(e)
-        wrong = len([item for item in response if item['correct'] is False])
-        if wrong > 0:
-            raise AssertionError("You have failed %d cases" % wrong)
+            wrong = len([item for item in response if item['correct'] is False])
+            for item in response:
+                print(item)
+            if wrong > 0:
+                raise AssertionError("You have failed %d cases" % wrong)
         if travis_uuid != '':
             requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/2',
                           data=jsonify(response))
@@ -127,13 +131,15 @@ class Test(unittest.TestCase):
                             "questionNumber": 3,
                             "testNumber": testnumber,
                             "correct": correct,
-                            "speed": return_dict['diff'] * 1000000000
+                            "speed": return_dict['diff'] 
                         })
                 except Exception as e:
                     print(e)
-        wrong = len([item for item in response if item['correct'] is False])
-        if wrong > 0:
-            raise AssertionError("You have failed %d cases" % wrong)
+            for item in response:
+                print(item)
+            wrong = len([item for item in response if item['correct'] is False])
+            if wrong > 0:
+                raise AssertionError("You have failed %d cases" % wrong)
         if travis_uuid != '':
             requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/3',
                           data=jsonify(response))
@@ -167,13 +173,15 @@ class Test(unittest.TestCase):
                             "questionNumber": 4,
                             "testNumber": testnumber,
                             "correct": correct,
-                            "speed": return_dict['diff'] * 1000000000
+                            "speed": return_dict['diff'] 
                         })
                 except Exception as e:
                     print(e)
-        wrong = len([item for item in response if item['correct'] is False])
-        if wrong > 0:
-            raise AssertionError("You have failed %d cases" % wrong)
+            for item in response:
+                print(item)
+            wrong = len([item for item in response if item['correct'] is False])
+            if wrong > 0:
+                raise AssertionError("You have failed %d cases" % wrong)
         if travis_uuid != '':
             requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/4',
                           data=jsonify(response))
@@ -207,13 +215,15 @@ class Test(unittest.TestCase):
                             "questionNumber": 5,
                             "testNumber": testnumber,
                             "correct": correct,
-                            "speed": return_dict['diff'] * 1000000000
+                            "speed": return_dict['diff'] 
                         })
                 except Exception as e:
                     print(e)
-        wrong = len([item for item in response if item['correct'] is False])
-        if wrong > 0:
-            raise AssertionError("You have failed %d cases" % wrong)
+            for item in response:
+                print(item)
+            wrong = len([item for item in response if item['correct'] is False])
+            if wrong > 0:
+                raise AssertionError("You have failed %d cases" % wrong)
         if travis_uuid != '':
             requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/5',
                           data=jsonify(response))
@@ -247,13 +257,15 @@ class Test(unittest.TestCase):
                             "questionNumber": 6,
                             "testNumber": testnumber,
                             "correct": correct,
-                            "speed": return_dict['diff'] * 1000000000
+                            "speed": return_dict['diff'] 
                         })
                 except Exception as e:
                     print(e)
-        wrong = len([item for item in response if item['correct'] is False])
-        if wrong > 0:
-            raise AssertionError("You have failed %d cases" % wrong)
+            for item in response:
+                print(item)
+            wrong = len([item for item in response if item['correct'] is False])
+            if wrong > 0:
+                raise AssertionError("You have failed %d cases" % wrong)
         if travis_uuid != '':
             requests.post('https://cscc-gl.herokuapp.com/answer/contestant/' + travis_uuid + '/6',
                           data=jsonify(response))
@@ -317,7 +329,6 @@ def runq5(q5input, return_dict):
 # DO NOT CHANGE THIS FUNCTION EITHER
 def runq6(q6input, return_dict):
     start = process_time()
-    # i = json.loads(q6input)
     output = question06(q6input)
     end = process_time()
     diff = end - start
